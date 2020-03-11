@@ -6,11 +6,42 @@
 <body>
 
 <p>How much was the bill?</p>
-<p><input type="text" id="bill"></p>
-<p><button onclick="calcTip(document.getElementById('bill').value)">Calculate 20% Tip</button></p>
-<p id="total"></p>
 
-<script src="tipcalc.js"></script>
+<p><input type="text" id="bill"></p>
+<!-- 
+This line makes a text box on the page. 
+The id is named so the Javascript knows exactly where to look for whatever is entered into the text box. -->
+
+<p><button onclick="calcTip(document.getElementById('bill').value)">Calculate 20% Tip</button></p>
+<!-- 
+This is a button on the page. 
+onclick means it is going to call a Javascript function when you click the button. 
+calcTip is the name of the function.
+document.getElementById('bill').value means look for the value of the id on the page called 'bill'. 
+(document.getElementById('bill').value) is in parentheses because it is the value that is sent to the Javascript function.
+'Calulate 20% Tip' is what will be written on the button.
+-->
+
+<p id="total"></p>
+<!--
+The id of this <p> is total. This allows the Javascript to look for this area on the page and write some HTML there.
+-->
+
+<script>
+
+function calcTip(bill){
+// This is the name of the function. In this case, bill = the value of the id called bill above.
+
+	var totalBill = bill * 1.2
+// This does the calculation. It takes bill and multiplies it by 1.2
+// It then sets totalBill to that value.
+
+	document.getElementById('total').innerHTML = totalBill;
+// This is the opposite of document.getElementById('bill').value 
+// It takes the value of total bill and PUSHES it to the HTML page. It looks for an id called total and puts it there.
+}
+
+</script>
 
 </body>
 </html>
